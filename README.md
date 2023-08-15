@@ -25,20 +25,30 @@ The Packet Sniffer is a Python script designed to capture and analyze HTTP reque
 
 4. Open a terminal and navigate to the directory containing the script.
 
-5. Run the script using the following command:
+5. Enable monitor mode on your wireless network interface (if applicable):
+
+   To enable monitor mode, you can use the following commands (replace `<interface>` with the name of your wireless interface):
+
+   ```sh
+   sudo ifconfig <interface> down
+   sudo iw <interface> set monitor control
+   sudo ifconfig <interface> up
+   ```
+
+6. Run the script using the following command:
    ```
    python3 packet_sniffer.py <interface>
    ```
    Replace `<interface>` with the name of the network interface you want to sniff (e.g., `eth0`, `en0`, etc.).
 
-6. The script will start capturing HTTP request traffic on the specified interface. When an HTTP request is detected, it will display the URL and, if present, any possible user credentials found in the request.
+7. The script will start capturing HTTP request traffic on the specified interface. When an HTTP request is detected, it will display the URL and, if present, any possible user credentials found in the request.
 
-7. To stop the script, press `Ctrl + C` in the terminal.
+8. To stop the script, press `Ctrl + C` in the terminal.
 
 ## Example
 
 ```
-python packet_sniffer.py eth0
+python3 packet_sniffer.py eth0
 ```
 
 Output:
